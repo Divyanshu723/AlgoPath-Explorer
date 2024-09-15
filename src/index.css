@@ -1,0 +1,379 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --transition-time: 0.25s;
+  --bar-color: #84CDEE;
+  --sort-button-color: seagreen;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 450;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 450;
+}
+
+h4 {
+  font-weight: 450;
+}
+
+h5 {
+  font-weight: 400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 350;
+  color: white;
+  background-color: #131416;
+}
+
+#app {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* TOOLBAR */
+#toolbar {
+  z-index: 1;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  transition: all 0.5s linear;
+}
+
+#title {
+  flex-grow: 0;
+}
+
+hr {
+  width: 100%;
+  margin-top: 1vh;
+  border-top: 1px solid #fff;
+  border-radius: 100px;
+}
+
+#toolbar a {
+  color: inherit;
+}
+
+.input_section {
+  width: 25%;
+  max-width: 480px;
+  margin: 0;
+}
+
+/* DATA BARS */
+
+.data_bar {
+  display: inline-block;
+  background-color: var(--bar-color);
+  /* Base appearance */
+  width: 100px; /* Adjust as needed */
+  height: 20px; /* Adjust as needed */
+  border-radius: 5px; /* Rounded corners */
+  
+  /* 3D effect */
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.2), /* Inner shadow for depth */
+    0 4px 8px rgba(0, 0, 0, 0.3); /* Outer shadow for elevation */
+  
+  /* Gradient to simulate light */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.3) 0%, /* Light highlight */
+    rgba(0, 0, 0, 0.1) 100% /* Shadow gradient */
+  );
+}
+
+/* Optional: To add a hover effect */
+.data_bar:hover {
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.3), /* Slightly stronger inner shadow on hover */
+    0 6px 12px rgba(0, 0, 0, 0.4); /* Slightly stronger outer shadow on hover */
+}
+
+
+.data_container {
+  background-color: #131416;
+  width: 100%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.statistics {
+  order: 0;
+}
+
+/* BUTTONS */
+.button_list {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  color: white;
+  justify-content: space-evenly;
+}
+
+.button_list button {
+  width: 100%;
+  background: none;
+  color: white;
+  text-shadow: inherit;
+  font-family: inherit;
+  font-size: 1rem;
+  border-radius: 5px;
+  padding: 1vh 0;
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+}
+
+.button_list select {
+  width: 100%;
+  margin: 0.5vh 0;
+  padding: 0.5vh 0;
+  font-family: inherit;
+}
+
+.array_button button {
+  border: 2px var(--bar-color) solid;
+}
+
+.array_button :hover {
+  background-color: var(--bar-color);
+}
+
+.sort_button button {
+  border: 2px var(--sort-button-color) solid;
+  margin-left: 0.5rem;
+}
+
+.sort_button button:hover {
+  background-color: var(--sort-button-color);
+}
+
+/* SLIDERS */
+.slider {
+  width: 100%;
+}
+
+/* INFO BOX */
+#infobox {
+  position: absolute;
+  width: 70%;
+  max-width: 1366px;
+  height: 70%;
+  max-height: 768px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #2b2b2be5;
+  border-radius: 10px;
+}
+
+#infobox button {
+  background: none;
+  color: white;
+  text-shadow: inherit;
+  font-family: inherit;
+  font-size: 1rem;
+  border-radius: 5px;
+  padding: 0.5vh 0.5vw;
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+  border: 2px #131416 solid;
+  position: absolute;
+  top: 2%;
+  right: 1%;
+}
+
+#infobox button:hover {
+  background-color: #131416;
+}
+
+#wikipedia {
+  width: 90%;
+  height: 80%;
+  margin-bottom: 3vh;
+}
+
+#wikipedia iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 936px), only screen and (max-height: 568px) {
+  #toolbar {
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000a6;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s linear;
+  }
+  .input_section {
+    width: 75%;
+    max-width: 360px;
+    margin-top: 1.5vh;
+  }
+  #toolbar.show {
+    opacity: 1;
+    transition: opacity 0.2s linear;
+  }
+  #toolbar.hide {
+    opacity: 0;
+  }
+  .statistics {
+    z-index: 2;
+  }
+}
+
+@media only screen and (max-width: 480px), only screen and (max-height: 480px) {
+  html {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 1.25rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+  .statistics {
+    order: 1;
+  }
+}
+
+@media only screen and (max-height: 400px) {
+  .statistics {
+    z-index: 0;
+  }
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+}
+
+#animateText {
+  margin: 0.5%;
+  font-family: 'Arial', sans-serif;
+  text-transform: uppercase;
+  font-size: 4rem; /* Adjust size as needed */
+  letter-spacing: 0.5rem; /* Adjust spacing for better effect */
+  background: linear-gradient(90deg, #000000, #626262, #000000); /* Dark blue to bright blue gradient */
+  background-repeat: no-repeat;
+  background-size: 200% 100%; /* Larger size for smoother animation */
+  animation: animate 4s linear infinite; /* Smooth animation */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Makes text color transparent for gradient */
+  position: relative;
+  display: inline-block;
+  overflow: hidden; /* Prevents text overflow */
+}
+
+@media only screen and (max-width: 510px) {
+  #animateText {
+    font-size: 2.5rem; /* Adjusted for smaller screens */
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  #animateText {
+    font-size: 2rem; /* Further adjustment for very small screens */
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position: 100% 0; /* Start with gradient positioned off-screen to the right (Path) */
+  }
+  50% {
+    background-position: 0% 0; /* Move gradient to fully visible position in the center */
+  }
+  100% {
+    background-position: -100% 0; /* End with gradient positioned off-screen to the left (Visualizer) */
+  }
+}
+
+
+#animateText::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: rgba(255, 255, 255, 0.8); White glitter effect */
+  opacity: 0.6;
+  mix-blend-mode: overlay; /* Enhance glitter effect */
+  pointer-events: none; /* Avoid interaction with glitter layer */
+  animation: glitter 1.5s linear infinite; /* Glitter animation */
+}
+
+@keyframes glitter {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
